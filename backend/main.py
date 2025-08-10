@@ -35,7 +35,7 @@ app.add_middleware(
 )
 
 # --- API Endpoint ---
-@app.post("/pipelines/parse")
+@app.post("/api/pipelines/parse")
 async def parse_pipeline(pipeline: Pipeline):
     try:
         # print("Received nodes:", pipeline.nodes)  # For debugging
