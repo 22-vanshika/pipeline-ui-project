@@ -1,4 +1,4 @@
-# Pipeline UI Project
+# Nodal
 
 A modern, node-based pipeline editor built with React Flow and FastAPI. This application allows users to visually construct pipelines, handle dynamic text operations, and validate graph structures via a Python backend.
 
