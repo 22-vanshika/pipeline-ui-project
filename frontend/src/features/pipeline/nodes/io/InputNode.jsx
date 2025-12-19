@@ -1,7 +1,8 @@
-import { Handle, Position } from '@xyflow/react';
-import { useStore } from '../../store';
+import { Position } from '@xyflow/react';
 import { BaseNode } from '../ui/BaseNode';
+import { NodeHandle } from '../ui/handleUtils';
 import { SquarePen } from 'lucide-react';
+import { useStore } from '../../store';
 
 export const InputNode = ({ id, data, selected }) => {
   const { updateNodeData } = useStore();
@@ -49,7 +50,7 @@ export const InputNode = ({ id, data, selected }) => {
           </label>
         </div>
       </BaseNode>
-      <Handle type="source" position={Position.Right} id={`${id}-value`} className="!bg-emerald-400/80 hover:!bg-emerald-300 shadow-[0_0_12px_2px_rgba(16,185,129,0.35)]" style={{ top: '50%', transform: 'translateY(-50%)' }} />
+      <NodeHandle type="source" position={Position.Right} id={`${id}-value`} category="input" />
     </div>
   );
 };

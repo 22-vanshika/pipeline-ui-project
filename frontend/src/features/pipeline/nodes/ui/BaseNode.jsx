@@ -1,4 +1,3 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { useStore } from '@/features/pipeline/store';
 
 const ACCENTS = {
@@ -81,22 +80,25 @@ export const BaseNode = ({
   };
 
   return (
-    <Card
-      className={`min-w-[275px] transition-all duration-200 text-stone-100 rounded-xl overflow-hidden bg-gradient-to-b ${accent} ${selected ? `ring-2 ${ring}` : 'ring-0'} hover:ring-2 ${ring}`}
+    <div
+      className={`min-w-[275px] transition-all duration-200 text-stone-100 rounded-xl overflow-hidden border bg-gradient-to-b ${accent} ${selected ? `ring-2 ${ring}` : 'ring-0'} hover:ring-2 ${ring}`}
       style={style}
     >
-      <CardHeader className="p-3 border-b border-white/10 bg-gradient-to-r from-black/20 to-transparent">
+      {/* Header */}
+      <div className="p-3 border-b border-white/10 bg-gradient-to-r from-black/20 to-transparent">
         <div className="flex items-center gap-2">
           {icon ? <span className="text-stone-300">{icon}</span> : null}
           <div className="flex flex-col">
-            <CardTitle className="text-sm font-semibold tracking-wide">{title}</CardTitle>
+            <h3 className="text-sm font-semibold tracking-wide">{title}</h3>
             {subtitle ? (
               <span className="text-[10px] text-stone-300/80 leading-tight">{subtitle}</span>
             ) : null}
           </div>
         </div>
-      </CardHeader>
-      <CardContent className="p-3">
+      </div>
+      
+      {/* Content */}
+      <div className="p-3">
         {config?.fields?.length ? (
           <div className="flex flex-col gap-3">
             {config.fields.map((f) => (
@@ -109,7 +111,7 @@ export const BaseNode = ({
         ) : (
           children
         )}
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
-}; 
+};

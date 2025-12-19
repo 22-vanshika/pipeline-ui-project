@@ -1,25 +1,32 @@
-import { Handle, Position } from '@xyflow/react';
-import { GenericNode } from '../ui/GenericNode';
+import { Position } from '@xyflow/react';
+import { BaseNode } from '../ui/BaseNode';
+import { NodeHandle } from '../ui/handleUtils';
 import { Link2 } from 'lucide-react';
 
-export const ConcatTextNode = ({ id, ...props }) => {
+export const ConcatTextNode = ({ id, data, selected }) => {
   const config = {
-    title: 'Text: Concat',
-    subtitle: 'Concatenate two strings',
-    icon: <Link2 size={14} />,
-    category: 'data',
     fields: [
       { key: 'left', label: 'Left', type: 'text', placeholder: 'Hello' },
       { key: 'right', label: 'Right', type: 'text', placeholder: 'World' },
       { key: 'separator', label: 'Separator', type: 'text', placeholder: ' ' },
     ],
   };
+
   return (
     <div className="relative">
-      <GenericNode {...props} id={id} config={config} />
-      <Handle type="target" position={Position.Left} id={`${id}-in-left`} className="!bg-amber-400/80 hover:!bg-amber-300 shadow-[0_0_12px_2px_rgba(245,158,11,0.35)]" style={{ top: '40%', transform: 'translateY(-50%)' }} />
-      <Handle type="target" position={Position.Left} id={`${id}-in-right`} className="!bg-amber-400/80 hover:!bg-amber-300 shadow-[0_0_12px_2px_rgba(245,158,11,0.35)]" style={{ top: '60%', transform: 'translateY(-50%)' }} />
-      <Handle type="source" position={Position.Right} id={`${id}-out`} className="!bg-amber-400/80 hover:!bg-amber-300 shadow-[0_0_12px_2px_rgba(245,158,11,0.35)]" style={{ top: '50%', transform: 'translateY(-50%)' }} />
+      <BaseNode
+        id={id}
+        data={data}
+        selected={selected}
+        title="Text: Concat"
+        subtitle="Concatenate two strings"
+        category="data"
+        icon={<Link2 size={14} />}
+        config={config}
+      />
+      <NodeHandle type="target" position={Position.Left} id={`${id}-in-left`} category="data" top="40%" />
+      <NodeHandle type="target" position={Position.Left} id={`${id}-in-right`} category="data" top="60%" />
+      <NodeHandle type="source" position={Position.Right} id={`${id}-out`} category="data" />
     </div>
   );
-}; 
+};

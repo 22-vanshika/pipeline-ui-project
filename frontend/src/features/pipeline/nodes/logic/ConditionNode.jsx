@@ -1,8 +1,9 @@
-import { Handle, Position } from '@xyflow/react';
+import { Position } from '@xyflow/react';
 import { BaseNode } from '../ui/BaseNode';
+import { NodeHandle } from '../ui/handleUtils';
 import { GitFork } from 'lucide-react';
 
-export const ConditionNode = ({ id, selected, data }) => {
+export const ConditionNode = ({ id, data, selected }) => {
   const config = {
     fields: [
       { key: 'left', label: 'Left operand', type: 'text', placeholder: 'x' },
@@ -15,6 +16,7 @@ export const ConditionNode = ({ id, selected, data }) => {
       { key: 'right', label: 'Right operand', type: 'text', placeholder: '10' },
     ],
   };
+
   return (
     <div className="relative">
       <BaseNode
@@ -27,9 +29,9 @@ export const ConditionNode = ({ id, selected, data }) => {
         icon={<GitFork size={14} />}
         config={config}
       />
-      <Handle type="target" position={Position.Left} id={`${id}-in`} className="!bg-rose-400/80 hover:!bg-rose-300 shadow-[0_0_12px_2px_rgba(244,63,94,0.35)]" style={{ top: '50%', transform: 'translateY(-50%)' }} />
-      <Handle type="source" position={Position.Right} id={`${id}-true`} className="!bg-rose-400/80 hover:!bg-rose-300 shadow-[0_0_12px_2px_rgba(244,63,94,0.35)]" style={{ top: '35%', transform: 'translateY(-50%)' }} />
-      <Handle type="source" position={Position.Right} id={`${id}-false`} className="!bg-rose-400/80 hover:!bg-rose-300 shadow-[0_0_12px_2px_rgba(244,63,94,0.35)]" style={{ top: '65%', transform: 'translateY(-50%)' }} />
+      <NodeHandle type="target" position={Position.Left} id={`${id}-in`} category="logic" />
+      <NodeHandle type="source" position={Position.Right} id={`${id}-true`} category="logic" top="35%" />
+      <NodeHandle type="source" position={Position.Right} id={`${id}-false`} category="logic" top="65%" />
     </div>
   );
-}; 
+};

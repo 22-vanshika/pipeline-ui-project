@@ -1,7 +1,8 @@
-import { Handle, Position } from '@xyflow/react';
-import { useStore } from '../../store';
+import { Position } from '@xyflow/react';
 import { BaseNode } from '../ui/BaseNode';
+import { NodeHandle } from '../ui/handleUtils';
 import { SquareArrowOutUpRight } from 'lucide-react';
+import { useStore } from '../../store';
 
 export const OutputNode = ({ id, data, selected }) => {
   const { updateNodeData } = useStore();
@@ -49,7 +50,7 @@ export const OutputNode = ({ id, data, selected }) => {
           </label>
         </div>
       </BaseNode>
-      <Handle type="target" position={Position.Left} id={`${id}-value`} className="!bg-sky-400/80 hover:!bg-sky-300 shadow-[0_0_12px_2px_rgba(56,189,248,0.35)]" style={{ top: '50%', transform: 'translateY(-50%)' }} />
+      <NodeHandle type="target" position={Position.Left} id={`${id}-value`} category="output" />
     </div>
   );
 };

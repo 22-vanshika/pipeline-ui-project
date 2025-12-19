@@ -2,15 +2,18 @@
 
 import Flow from '@/features/pipeline/Flow';
 import { Toaster } from 'react-hot-toast';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 function App() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
-      <Toaster position="top-right" />
-      <div style={{ flexGrow: 1 }}>
-        <Flow />
+    <ErrorBoundary>
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+        <Toaster position="top-right" />
+        <div style={{ flexGrow: 1 }}>
+          <Flow />
+        </div>
       </div>
-    </div>
+    </ErrorBoundary>
   );
 }
 

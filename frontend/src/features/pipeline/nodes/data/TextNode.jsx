@@ -5,6 +5,7 @@ import { useStore } from '@/features/pipeline/store';
 import { useVariableParser } from '@/hooks/useVariableParser';
 import { useRef, useEffect, useState } from 'react';
 import { FileText } from 'lucide-react';
+import { getHandleClassName, NodeHandle } from '../ui/handleUtils';
 
 export const TextNode = ({ id, data, selected }) => {
   const { updateNodeData, updateNodeStyle } = useStore();
@@ -70,12 +71,13 @@ export const TextNode = ({ id, data, selected }) => {
             type="target"
             position={Position.Left}
             id={`${id}-${varName}`}
-            className="!bg-amber-400/80 hover:!bg-amber-300 shadow-[0_0_12px_2px_rgba(245,158,11,0.35)]"
+            className={getHandleClassName('data')}
           />
         </div>
       ))}
 
-      <Handle type="source" position={Position.Right} id={`${id}-output`} className="!bg-amber-400/80 hover:!bg-amber-300 shadow-[0_0_12px_2px_rgba(245,158,11,0.35)]" style={{ top: '50%', transform: 'translateY(-50%)' }} />
+      <NodeHandle type="source" position={Position.Right} id={`${id}-output`} category="data" />
     </div>
   );
 };
+

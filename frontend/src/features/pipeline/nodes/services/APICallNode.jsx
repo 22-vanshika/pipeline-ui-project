@@ -1,8 +1,9 @@
-import { Handle, Position } from '@xyflow/react';
+import { Position } from '@xyflow/react';
 import { BaseNode } from '../ui/BaseNode';
+import { NodeHandle } from '../ui/handleUtils';
 import { Network } from 'lucide-react';
 
-export const APICallNode = ({ id, selected, data }) => {
+export const APICallNode = ({ id, data, selected }) => {
   const config = {
     fields: [
       { key: 'method', label: 'Method', type: 'select', options: [
@@ -26,9 +27,9 @@ export const APICallNode = ({ id, selected, data }) => {
         icon={<Network size={14} />}
         config={config}
       />
-      <Handle type="target" position={Position.Left} id={`${id}-params`} className="!bg-violet-400/80 hover:!bg-violet-300 shadow-[0_0_12px_2px_rgba(139,92,246,0.35)]" style={{ top: '35%', transform: 'translateY(-50%)' }} />
-      <Handle type="target" position={Position.Left} id={`${id}-headers`} className="!bg-violet-400/80 hover:!bg-violet-300 shadow-[0_0_12px_2px_rgba(139,92,246,0.35)]" style={{ top: '65%', transform: 'translateY(-50%)' }} />
-      <Handle type="source" position={Position.Right} id={`${id}-response`} className="!bg-violet-400/80 hover:!bg-violet-300 shadow-[0_0_12px_2px_rgba(139,92,246,0.35)]" style={{ top: '50%', transform: 'translateY(-50%)' }} />
+      <NodeHandle type="target" position={Position.Left} id={`${id}-params`} category="service" top="35%" />
+      <NodeHandle type="target" position={Position.Left} id={`${id}-headers`} category="service" top="65%" />
+      <NodeHandle type="source" position={Position.Right} id={`${id}-response`} category="service" />
     </div>
   );
-}; 
+};
