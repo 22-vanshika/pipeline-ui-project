@@ -47,7 +47,7 @@ const NODE_ICONS = {
 
 const TILE = `
   cursor-grab select-none rounded-lg px-3 py-2.5
-  text-sm text-stone-200 font-medium
+  text-xs text-stone-200 font-display font-medium tracking-wide
   border border-white/10 
   bg-gradient-to-r from-white/5 to-transparent
   hover:from-white/10 hover:to-white/5
@@ -64,7 +64,7 @@ export const PipelineToolbar = () => {
   return (
     <div className="flex flex-col gap-1.5">
       {Object.entries(NODE_CATEGORIES).map(([categoryKey, category]) => (
-        <div key={categoryKey}>
+        <div key={categoryKey} className="flex flex-col gap-2">
           <span className={SECTION_TITLE}>{category.label}</span>
           {category.nodes.map((node) => {
             const Icon = NODE_ICONS[node.type];

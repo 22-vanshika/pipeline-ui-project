@@ -89,7 +89,7 @@ export const BaseNode = ({
         <div className="flex items-center gap-2">
           {icon ? <span className="text-stone-300">{icon}</span> : null}
           <div className="flex flex-col">
-            <h3 className="text-sm font-semibold tracking-wide">{title}</h3>
+            <h3 className="text-lg font-display font-semibold tracking-wide">{title}</h3>
             {subtitle ? (
               <span className="text-[10px] text-stone-300/80 leading-tight">{subtitle}</span>
             ) : null}
