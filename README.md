@@ -1,4 +1,4 @@
-# Nodal
+# Pipeline UI Project
 
 A modern, node-based pipeline editor built with React Flow and FastAPI. This application allows users to visually construct pipelines, handle dynamic text operations, and validate graph structures via a Python backend.
 
@@ -28,6 +28,36 @@ A modern, node-based pipeline editor built with React Flow and FastAPI. This app
 ### Backend
 -   **Python** (FastAPI)
 -   **NetworkX**: Graph algorithms for DAG validation and cycle detection.
+
+## 🏃‍♂️ Getting Started
+
+### Prerequisites
+-   Node.js (v18+)
+-   Python (v3.8+)
+
+### 1. Backend Setup
+
+Open a terminal and navigate to the backend directory:
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+```
+The backend will start at `http://localhost:8000`.
+
+### 2. Frontend Setup
+
+Open a **new** terminal and navigate to the frontend directory:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+The frontend will start at `http://localhost:3000` (or the port shown in your terminal).
 
 ## 📦 Project Structure
 
